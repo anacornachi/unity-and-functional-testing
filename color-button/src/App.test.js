@@ -38,8 +38,8 @@ test("checkbox disables button on first click and enbales on second click", () =
 
   // expect checkbox is unchecked
 
-  const checkbox = screen.getByRole("checkbox");
-  const button = screen.getByRole("button");
+  const checkbox = screen.getByRole("checkbox", { name: "Disable button" });
+  const colorButton = screen.getByRole("button", { name: "Change to blue" });
 
   // click button -- first time
 
@@ -47,7 +47,7 @@ test("checkbox disables button on first click and enbales on second click", () =
 
   // expect checkbox is disabled
 
-  expect(button).toBeDisabled();
+  expect(colorButton).toBeDisabled();
 
   // click button -- second time
 
@@ -55,5 +55,5 @@ test("checkbox disables button on first click and enbales on second click", () =
 
   // expect checkbox is enabled
 
-  expect(button).toBeEnabled();
+  expect(colorButton).toBeEnabled();
 });
