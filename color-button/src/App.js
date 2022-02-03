@@ -1,16 +1,22 @@
-import "./App.css";
-import { useState } from "react";
+import './App.css';
+import {useState} from 'react';
+import React from 'react';
+
+export function replaceCamelWithSpaces(colorName) {
+  return colorName.replace(/\B([A-Z])\B/g, ' $1');
+}
 
 function App() {
-  const [buttonColor, setButtonColor] = useState("red");
-  const newButtonColor = buttonColor === "red" ? "blue" : "red";
+  const [buttonColor, setButtonColor] = useState('MediumVioletRed');
+  const newButtonColor =
+    buttonColor === 'MediumVioletRed' ? 'MidnightBlue' : 'MediumVioletRed';
 
   const [disabled, setDisabled] = useState(false);
 
   return (
     <div>
       <button
-        style={{ backgroundColor: disabled ? "gray" : buttonColor }}
+        style={{backgroundColor: disabled ? 'gray' : buttonColor}}
         onClick={() => setButtonColor(newButtonColor)}
         disabled={disabled}
       >
@@ -29,9 +35,3 @@ function App() {
 }
 
 export default App;
-
-// botao tem 2 cores
-// quando o botao é clicado,  troca entre essas 2 cores
-// quando o botao esta inativo, o botao fica cinza
-
-// disabled ? "gray" : buttonColor
