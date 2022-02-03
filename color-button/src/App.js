@@ -10,7 +10,7 @@ function App() {
   return (
     <div>
       <button
-        style={{ backgroundColor: buttonColor }}
+        style={{ backgroundColor: disabled ? "gray" : buttonColor }}
         onClick={() => setButtonColor(newButtonColor)}
         disabled={disabled}
       >
@@ -29,3 +29,9 @@ function App() {
 }
 
 export default App;
+
+// botao tem 2 cores
+// quando o botao é clicado,  troca entre essas 2 cores
+// quando o botao esta inativo, o botao fica cinza
+
+// disabled ? "gray" : buttonColor
