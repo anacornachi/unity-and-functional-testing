@@ -35,7 +35,7 @@ Esse repositório contempla códigos para fins de estudos e aplicação dos conh
 
 ```bash
 # Clone este repositório
-$ git clone <https://github.com/anacornachi/unity-and-functional-testing.git>
+$ git clone https://github.com/anacornachi/unity-and-functional-testing.git
 
 # Acesse a pasta do projeto no terminal/cmd
 $ cd unity-and-functional-testing
