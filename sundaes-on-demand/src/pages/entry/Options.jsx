@@ -16,7 +16,7 @@ export default function Options({optionType}) {
   // optionType is 'scoops' or 'toppings'
   useEffect(() => {
     axios
-      .get(`https://localhost:3030/${optionType}`)
+      .get(`http://localhost:3030/${optionType}`)
       .then((response) => setItems(response.data))
       .catch((error) => setError(true));
   }, [optionType]);
@@ -33,7 +33,7 @@ export default function Options({optionType}) {
       <ItemComponent
         key={item.name}
         name={item.name}
-        imagePath={items.imagePath}
+        imagePath={item.imagePath}
         updateItemCount={(itemName, newItemCount) =>
           updateItemCount(itemName, newItemCount, optionType)
         }
