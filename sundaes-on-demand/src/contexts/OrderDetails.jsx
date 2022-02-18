@@ -18,13 +18,13 @@ export function useOrderDetails() {
   return context;
 }
 
-function calculateSubtotal(orderType, optionCounts) {
+function calculateSubtotal(optionType, optionCounts) {
   let optionCount = 0;
-  for (const count of optionCounts[orderType].values()) {
+  for (const count of optionCounts[optionType].values()) {
     optionCount += count;
   }
 
-  return optionCount * pricePerItem[orderType];
+  return optionCount * pricePerItem[optionType];
 }
 
 export function OrderDetailsProvider(props) {
