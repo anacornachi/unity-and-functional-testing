@@ -16,11 +16,7 @@ export default function OrderSummary({setOrderPhase}) {
 
   const toppingArray = Array.from(orderDetails.toppings.entries());
   const toppingList = toppingArray.map(([key, value]) => {
-    return (
-      <li key={key}>
-        {value} {key}
-      </li>
-    );
+    return <li key={key}>{key}</li>;
   });
 
   return (

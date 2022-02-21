@@ -67,17 +67,17 @@ test('order phases for happy path', async () => {
   expect(orderNumber).toBeInTheDocument();
 
   // click new order button on confirmation page
-  const newOrderButton = screen.getByRole('button', {name: /nem order/i});
+  const newOrderButton = screen.getByRole('button', {name: /new order/i});
   userEvent.click(newOrderButton);
 
   // check the scoops and toppings subtotals have been reset
-  const scoopsTotal = screen.getByText('Scoops total: $ 0.00');
+  const scoopsTotal = screen.getByText('Scoops total: $0.00');
   expect(scoopsTotal).toBeInTheDocument();
-  const toppingsTotal = screen.getByText('Scoops total: $ 0.00');
+  const toppingsTotal = screen.getByText('Toppings total: $0.00');
   expect(toppingsTotal).toBeInTheDocument();
 
   // do we nedd to await anything to avoid test error?
   // wait for items to appear so that Testing Library doesn't get angry
   await screen.findByRole('spinbutton', {name: 'Vanilla'});
-  await screen.findByRole('spinbutton', {name: 'Cherries'});
+  await screen.findByRole('checkbox', {name: 'Cherries'});
 });
