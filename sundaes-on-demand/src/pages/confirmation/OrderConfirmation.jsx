@@ -21,7 +21,7 @@ export default function OrderConfirmation({setOrderPhase}) {
   }, []);
 
   if (error) {
-    return <AlertBanner message="test" variant="danger" />;
+    return <AlertBanner />;
   }
 
   function handleClick() {
@@ -34,13 +34,19 @@ export default function OrderConfirmation({setOrderPhase}) {
 
   if (orderNumber) {
     return (
-      <div style={{textAlign: 'center'}}>
+      <div
+        style={{
+          textAlign: 'center',
+        }}
+      >
         <h1>Thank You!</h1>
         <p>Your order number is {orderNumber}</p>
-        <p style={{fontSize: '25%'}}>
+        <p style={{fontSize: '100%'}}>
           as per our terms and conditions, nothing will happen now
         </p>
-        <Button onClick={handleClick}>Create new order</Button>
+        <Button onClick={handleClick} variant="light">
+          Create new order
+        </Button>
       </div>
     );
   } else {

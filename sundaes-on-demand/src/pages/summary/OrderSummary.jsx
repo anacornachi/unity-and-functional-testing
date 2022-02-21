@@ -7,16 +7,20 @@ export default function OrderSummary({setOrderPhase}) {
 
   const scoopArray = Array.from(orderDetails.scoops.entries());
   const scoopList = scoopArray.map(([key, value]) => {
-    <li key={key}>
-      {value} {key}
-    </li>;
+    return (
+      <li key={key}>
+        {value} {key}
+      </li>
+    );
   });
 
-  const toppingArray = Array.from(orderDetails.scoops.entries());
+  const toppingArray = Array.from(orderDetails.toppings.entries());
   const toppingList = toppingArray.map(([key, value]) => {
-    <li key={key}>
-      {value} {key}
-    </li>;
+    return (
+      <li key={key}>
+        {value} {key}
+      </li>
+    );
   });
 
   return (

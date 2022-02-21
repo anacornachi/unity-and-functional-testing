@@ -32,9 +32,15 @@ export default function SummaryForm({setOrderPhase}) {
           checked={isChecked}
           onChange={(event) => setIsChecked(event.target.checked)}
           label={checkboxLabel}
+          className="mt-4"
         />
       </Form.Group>
-      <Button variant="light" type="submit" disabled={!isChecked}>
+      <Button
+        variant="light"
+        type="submit"
+        disabled={!isChecked}
+        className="mt-4"
+      >
         Confirm order
       </Button>
     </Form>

@@ -4,6 +4,7 @@ import {OrderDetailsProvider} from './contexts/OrderDetails';
 import {useState} from 'react';
 import OrderEntry from './pages/entry/OrderEntry';
 import OrderSummary from './pages/summary/OrderSummary';
+import OrderConfirmation from './pages/confirmation/OrderConfirmation';
 
 function App() {
   const [orderPhase, setOrderPhase] = useState('inProgress');
