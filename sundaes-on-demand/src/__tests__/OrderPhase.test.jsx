@@ -58,10 +58,16 @@ test('order phases for happy path', async () => {
   userEvent.click(confirmOrderButton);
 
   // confirm order number on confirmation page
+  const loading = screen.getByText('Loading');
+  expect(loading).toBeInTheDocument();
+
   const thankYouHeader = await screen.findByRole('heading', {
     name: /thank you/i,
   });
   expect(thankYouHeader).toBeInTheDocument();
+
+  const notLoading = screen.queryByText('Loading');
+  expect(notLoading).not.toBeInTheDocument();
 
   const orderNumber = await screen.findByText(/order number/i);
   expect(orderNumber).toBeInTheDocument();
@@ -80,4 +86,24 @@ test('order phases for happy path', async () => {
   // wait for items to appear so that Testing Library doesn't get angry
   await screen.findByRole('spinbutton', {name: 'Vanilla'});
   await screen.findByRole('checkbox', {name: 'Cherries'});
+});
+
+test('do not show topping header if no topping is added', async () => {
+  render(<App />);
+
+  const vanillaInput = await screen.findByRole('spinbutton', {name: 'Vanilla'});
+  userEvent.clear(vanillaInput);
+  userEvent.type(vanillaInput, '2');
+
+  const orderSummaryButton = screen.getByRole('button', {
+    name: /order sundae/i,
+  });
+
+  userEvent.click(orderSummaryButton);
+
+  expect(screen.getByText('2 Vanilla')).toBeInTheDocument();
+
+  const toppingList = screen.queryByText(/toppings: \$/i);
+
+  expect(toppingList).not.toBeInTheDocument();
 });
