@@ -3,7 +3,7 @@
 <p align="center">🎯 Estudos de testes unitários e funcionais</p>
 
 <h4 align="center"> 
-	🚧  Em andamento...  🚧
+	🚧  Finalizado  🚧
 </h4>
 
 <br>
